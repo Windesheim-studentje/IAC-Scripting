@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Installeer Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Nginx starten
+      service:
+        name: nginx
+        state: started
+        enabled: true

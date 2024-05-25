@@ -1,0 +1,7 @@
+- hosts: servers
+  become: true
+  tasks:
+    - name: Add SSH key to authorized_keys
+      authorized_key:
+        user: "{{ ansible_user }}"
+        key: "{{ lookup('file', '"${klantdir}/id_rsa.pub"') }}"

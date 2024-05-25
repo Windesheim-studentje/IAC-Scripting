@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Installeer MySQL
+      apt:
+        name: mysql-server
+        state: present
+
+    - name: SQL starten
+      service:
+        name: mysql
+        state: started
+        enabled: true
